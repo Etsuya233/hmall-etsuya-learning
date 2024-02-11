@@ -1,0 +1,16 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: item-service
+  profiles:
+    active: dev
+hm:
+  db:
+    host: localhost
+    name: hm-item
+    pw: ety2004
+  seata:
+    txgroup: seata-demo
+  swagger:
+    package: com.hmall.item.controller

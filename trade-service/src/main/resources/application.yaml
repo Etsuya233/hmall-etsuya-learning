@@ -1,0 +1,11 @@
+server:
+  port: 8085
+hm:
+  db:
+    host: localhost
+    name: hm-trade
+    pw: ety2004
+  seata:
+    txgroup: seata-demo
+  swagger:
+    package: com.hmall.trade.controller

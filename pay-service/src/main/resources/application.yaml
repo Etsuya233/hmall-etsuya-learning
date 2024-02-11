@@ -1,0 +1,12 @@
+server:
+  port: 8086
+
+hm:
+  db:
+    host: localhost
+    name: hm-pay
+    pw: ety2004
+  seata:
+    txgroup: seata-demo
+  swagger:
+    package: com.hmall.pay.controller

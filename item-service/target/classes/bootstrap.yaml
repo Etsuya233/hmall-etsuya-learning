@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: item-service # 服务名称
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      server-addr: localhost:8848 # nacos地址
+      config:
+        file-extension: yaml # 文件后缀名
+        shared-configs: # 共享配置
+          - data-id: shared-jdbc.yaml
+          - data-id: shared-log.yaml
+          - data-id: shared-swagger.yaml
+          - data-id: shared-feign.yaml
+          - data-id: shared-logging.yaml
+          - data-id: shared-seata.yaml
+          - data-id: shared-sentinel.yaml
+          - data-id: shared-rabbitmq.yaml

@@ -1,0 +1,21 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: user-service # 服务名称
+  profiles:
+    active: dev
+hm:
+  db:
+    host: localhost
+    name: hm-user
+    pw: ety2004
+  seata:
+    txgroup: seata-demo
+  jwt:
+    location: classpath:hmall.jks
+    alias: hmall
+    password: hmall123
+    tokenTTL: 30m
+  swagger:
+    package: com.hmall.user.controller

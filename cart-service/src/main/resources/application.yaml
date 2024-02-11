@@ -1,0 +1,13 @@
+server:
+  port: 8082
+hm:
+  db:
+    host: localhost
+    name: hm-cart
+    pw: ety2004
+  seata:
+    txgroup: seata-demo
+#  cart:
+#    maxSize: 5 #购物车上限
+  swagger:
+    package: com.hmall.cart.controller
