@@ -85,9 +85,9 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         rabbitTemplate.convertAndSend("trade.topic", "order.create", new ArrayList<>(itemIds));
 
         //5，发送延迟消息，更改订单状态
-        MultiDelayMessage<Long> message = MultiDelayMessage.of(order.getId(), 10000L, 10000L, 10000L, 15000L, 15000L, 30000L, 30000L, 60000L, 120000L, 1500000L);
+        MultiDelayMessage<Long> message = MultiDelayMessage.of(order.getId(), 10000L, 10000L, 15000L, 15000L, 30000L, 30000L, 60000L, 120000L, 1500000L);
         rabbitTemplate.convertAndSend(MqConstants.DELAY_EXCHANGE, MqConstants.DELAY_ORDER_ROUTING_KEY, message, msg -> {
-            msg.getMessageProperties().setDelay(message.removeNextDelay().intValue());
+            msg.getMessageProperties().setDelay(10000);
             return msg;
         });
 

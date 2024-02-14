@@ -24,6 +24,10 @@ public class MultiDelayMessage<T> {
 		return new MultiDelayMessage<>(data, CollUtils.newArrayList(delayMillis));
 	}
 
+	public MultiDelayMessage(){
+
+	}
+
 	/**
 	 * 获取并移除下一个延迟时间
 	 * @return 队列中的第一个延迟时间

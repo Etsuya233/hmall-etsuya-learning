@@ -39,7 +39,6 @@ public class MqConfig {
             @Override
             public Message postProcessMessage(Message message) throws AmqpException {
                 Long userId = message.getMessageProperties().getHeader("userId");
-                System.out.println("get");
                 UserContext.setUser(userId);
                 return message;
             }
