@@ -10,12 +10,11 @@ import com.hmall.common.utils.BeanUtils;
 import com.hmall.common.utils.UserContext;
 import com.hmall.pay.domain.dto.PayApplyDTO;
 import com.hmall.pay.domain.dto.PayOrderFormDTO;
-import com.hmall.pay.domain.po.PayOrder;
+import com.hmall.api.pojo.PayOrder;
 import com.hmall.pay.enums.PayStatus;
 import com.hmall.pay.mapper.PayOrderMapper;
 import com.hmall.pay.service.IPayOrderService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -63,13 +62,6 @@ public class PayOrderServiceImpl extends ServiceImpl<PayOrderMapper, PayOrder> i
         }
         // 5.修改订单状态
         tradeClient.markOrderPaySuccess(po.getBizOrderNo());
-        try {//避免事务回滚
-//            rabbitTemplate.convertAndSend("pay.topic","pay.success",po.getPayOrderNo());
-        }catch (Exception e){
-            log.error("支付成功,通知交易服务失败",e);
-            e.printStackTrace();
-        }
-
     }
 
     public boolean markPayOrderSuccess(Long id, LocalDateTime successTime) {

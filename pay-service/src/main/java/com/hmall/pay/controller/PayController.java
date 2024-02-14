@@ -1,9 +1,11 @@
 package com.hmall.pay.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.hmall.common.exception.BizIllegalException;
 import com.hmall.common.utils.BeanUtils;
 import com.hmall.pay.domain.dto.PayApplyDTO;
 import com.hmall.pay.domain.dto.PayOrderFormDTO;
+import com.hmall.api.pojo.PayOrder;
 import com.hmall.pay.domain.vo.PayOrderVO;
 import com.hmall.pay.enums.PayType;
 import com.hmall.pay.service.IPayOrderService;
@@ -44,5 +46,11 @@ public class PayController {
     @GetMapping
     public List<PayOrderVO> queryPayOrders(){
         return BeanUtils.copyList(payOrderService.list(), PayOrderVO.class);
+    }
+
+    @ApiOperation("根据OrderId查询订单")
+	@GetMapping("/order/{id}")
+    public PayOrder getPayOrderByOrderId(@PathVariable("id") Long id){
+        return payOrderService.getOne(new QueryWrapper<>(new PayOrder().setBizOrderNo(id)));
     }
 }

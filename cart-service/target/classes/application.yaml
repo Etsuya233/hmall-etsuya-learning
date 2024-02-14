@@ -7,7 +7,5 @@ hm:
     pw: ety2004
   seata:
     txgroup: seata-demo
-#  cart:
-#    maxSize: 5 #购物车上限
   swagger:
     package: com.hmall.cart.controller

@@ -1,7 +1,7 @@
 package com.hmall.pay.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.hmall.pay.domain.po.PayOrder;
+import com.hmall.api.pojo.PayOrder;
 
 /**
  * <p>
